@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+	<head>
+	
+		<script type="text/javascript">
+			
+			var box = document.getElementById("box");
+
+			var x = 3;
+			var y = 5;
+			var xSpeed = 5;
+			var ySpeed = 3;
+			
+			function update() {
+			  x = x + xSpeed; 
+			  box.style.marginLeft = x + "px";
+			  y = y + ySpeed;
+			  box.style.marginTop = y + "px";
+			}
+			
+			var bigbox = document.getElementById("bigbox");
+			var width = document.getElementById("bigbox").offsetWidth;
+			var height = document.getElementById("bigbox").offsetHeight;
+			var x = x + xSpeed;
+			var y = y + ySpeed;
+			
+			function reUpdate() {
+			  if (x > (width - 28))
+			    xSpeed = xSpeed * -1;
+			  else if (x < 1)
+			    xSpeed = xSpeed * -1;
+			  if (y > (height - 28))
+			    ySpeed = ySpeed * -1;  
+			  else if (y < 1)
+			    ySpeed = ySpeed * -1;
+			}
+			
+			setInterval(update,1000/100);
+			setInterval(reUpdate,1000/100);
+						
+		</script>
+	
+		<style type="text/css">
+			#bigbox{
+			  width: 500px;
+			  height: 500px;
+			  border-style: solid;
+			  border-color: black;
+			  background: lightgrey;
+			}
+			
+			#box {
+		    width: 50px;
+		    height: 50px;
+		    -webkit-border-radius: 25px;
+		    -moz-border-radius: 25px;
+		    border-radius: 25px;
+		    background: black;
+			}
+		    
+		</style>
+		
+	</head>
+	
+	<body>
+		
+		<div>
+		  <div id="bigbox">
+		    <div id="box"></div>
+		  </div>  
+		</div> 
+	
+	</body>
+
+</html>
